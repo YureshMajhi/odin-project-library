@@ -4,17 +4,13 @@ let nameInput = document.querySelector("#name-value");
 let authorInput = document.querySelector("#author-value");
 let statusInput = document.querySelector("#status-value");
 let arrayCount = 0;
+let contents = document.querySelector(".main");
 
 let a;
 let form = document.querySelector(".form");
+form.style.display = "none";
 document.querySelector("#add").addEventListener("click", function () {
-  if (a == 1) {
-    form.style.display = "block";
-    return (a = 0);
-  } else {
-    form.style.display = "none";
-    return (a = 1);
-  }
+  form.style.display = "block";
 });
 
 function Book(name, author, status) {
@@ -43,4 +39,21 @@ document.querySelector("#submit").addEventListener("click", function () {
   for (let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i]);
   }
+  contents.innerHTML = generateList(myLibrary);
+  form.style.display = "none";
 });
+
+function generateList(arg) {
+  let items = "";
+  for (let i = 0; i < myLibrary.length; i++) {
+    items += `
+    <div>
+        <p>Name = ${arg[i].name}</p>
+        <p>Author = ${arg[i].author}</p>
+        <p>Status = ${arg[i].status}</p>
+        <hr>
+    <div>
+    `;
+  }
+  return items;
+}
