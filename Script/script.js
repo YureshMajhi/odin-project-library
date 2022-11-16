@@ -6,6 +6,14 @@ let statusInput = document.querySelector("#status-value");
 let arrayCount = 0;
 let contents = document.querySelector(".main");
 
+const arrFromLocal = JSON.parse(localStorage.getItem("myLibrary"));
+
+if (arrFromLocal) {
+  myLibrary = arrFromLocal;
+  contents.innerHTML = generateList(myLibrary);
+  arrayCount = JSON.parse(localStorage.getItem("arrayCount"));
+}
+
 let form = document.querySelector(".form");
 form.style.display = "none";
 document.querySelector("#add").addEventListener("click", function () {
@@ -31,12 +39,15 @@ document.querySelector("#submit").addEventListener("click", function () {
   ) {
     myLibrary[arrayCount] = addBookToLibrary();
     arrayCount++;
+    localStorage.setItem("arrayCount", JSON.stringify(arrayCount));
     nameInput.value = "";
     authorInput.value = "";
     statusInput.value = "";
   }
   contents.innerHTML = generateList(myLibrary);
   form.style.display = "none";
+
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 });
 
 function generateList(arg) {
@@ -58,4 +69,5 @@ document.querySelector("#delete").addEventListener("click", function () {
   myLibrary = [];
   contents.innerHTML = generateList(myLibrary);
   arrayCount = 0;
+  localStorage.clear();
 });
