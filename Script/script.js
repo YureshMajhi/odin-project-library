@@ -6,7 +6,6 @@ let statusInput = document.querySelector("#status-value");
 let arrayCount = 0;
 let contents = document.querySelector(".main");
 
-let a;
 let form = document.querySelector(".form");
 form.style.display = "none";
 document.querySelector("#add").addEventListener("click", function () {
@@ -36,9 +35,6 @@ document.querySelector("#submit").addEventListener("click", function () {
     authorInput.value = "";
     statusInput.value = "";
   }
-  for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i]);
-  }
   contents.innerHTML = generateList(myLibrary);
   form.style.display = "none";
 });
@@ -47,7 +43,7 @@ function generateList(arg) {
   let items = "";
   for (let i = 0; i < myLibrary.length; i++) {
     items += `
-    <div>
+    <div class="card">
         <p>Name = ${arg[i].name}</p>
         <p>Author = ${arg[i].author}</p>
         <p>Status = ${arg[i].status}</p>
@@ -57,3 +53,9 @@ function generateList(arg) {
   }
   return items;
 }
+
+document.querySelector("#delete").addEventListener("click", function () {
+  myLibrary = [];
+  contents.innerHTML = generateList(myLibrary);
+  arrayCount = 0;
+});
