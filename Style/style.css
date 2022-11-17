@@ -1,1 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: white;
+  padding: 3rem;
+  background-color: purple;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+#add {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  background-color: rgb(221, 122, 221);
+  border-radius: 0.5rem;
+  color: rgb(54, 6, 54);
+}
+
+#delete {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  padding: 0.8rem;
+  background-color: rgb(77, 1, 77);
+  border: none;
+  color: white;
+  border-radius: 0.2rem;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(145, 30, 145, 0.5);
+  line-height: 80vh;
+}
+
+.form {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25vh;
+  padding: 20px;
+  background-color: purple;
+  border-radius: 0.2rem;
+}
+
+.form input {
+  padding: 3px;
+  font-size: 15px;
+}
+
+#submit {
+  background-color: rgb(221, 122, 221);
+  border: none;
+  padding: 0.4rem;
+  border-radius: ;
+  color: rgb(54, 6, 54);
+}
+
+button {
+  cursor: pointer;
+}
+
+.main {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 1rem;
+  justify-content: center;
+}
+
+.main .card {
+  text-align: left;
+}

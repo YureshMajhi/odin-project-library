@@ -14,7 +14,7 @@ if (arrFromLocal) {
   arrayCount = JSON.parse(localStorage.getItem("arrayCount"));
 }
 
-let form = document.querySelector(".form");
+let form = document.querySelector(".form-container");
 form.style.display = "none";
 document.querySelector("#add").addEventListener("click", function () {
   form.style.display = "block";
@@ -58,8 +58,7 @@ function generateList(arg) {
         <p>Name = ${arg[i].name}</p>
         <p>Author = ${arg[i].author}</p>
         <p>Status = ${arg[i].status}</p>
-        <hr>
-    <div>
+    </div>
     `;
   }
   return items;
