@@ -24,9 +24,12 @@ h1 {
   border-radius: 0.5rem;
   color: rgb(54, 6, 54);
 }
+#add:hover {
+  background-color: rgb(197, 53, 197);
+}
 
 #delete {
-  position: absolute;
+  position: fixed;
   bottom: 40px;
   right: 40px;
   padding: 0.8rem;
@@ -36,6 +39,9 @@ h1 {
   border-radius: 0.2rem;
   letter-spacing: 2px;
   font-size: 0.9rem;
+}
+#delete:hover {
+  box-shadow: 2px 2px 5px purple;
 }
 
 .form-container {
@@ -70,19 +76,33 @@ h1 {
   border-radius: ;
   color: rgb(54, 6, 54);
 }
+#submit:hover {
+  background-color: rgb(197, 53, 197);
+}
 
 button {
   cursor: pointer;
 }
 
 .main {
+  padding: 2rem;
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 15rem);
+  gap: 1.5rem;
   justify-content: center;
 }
 
 .main .card {
+  padding: 1rem;
   text-align: left;
+  background-color: rgb(228, 188, 247);
+  color: #771167;
+  height: 8rem;
+  border-radius: 0.5rem;
+  box-shadow: 3px 2px 6px black;
+}
+
+.card p {
+  line-height: 2rem;
 }

@@ -1,8 +1,8 @@
 let myLibrary = [];
 
-let nameInput = document.querySelector("#name-value");
-let authorInput = document.querySelector("#author-value");
-let statusInput = document.querySelector("#status-value");
+const nameInput = document.querySelector("#name-value");
+const authorInput = document.querySelector("#author-value");
+const statusInput = document.querySelector("#status-value");
 let arrayCount = 0;
 let contents = document.querySelector(".main");
 
