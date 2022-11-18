@@ -98,7 +98,7 @@ button {
   text-align: left;
   background-color: rgb(228, 188, 247);
   color: #771167;
-  height: 8rem;
+  min-height: 8rem;
   border-radius: 0.5rem;
   box-shadow: 3px 2px 6px black;
 }
