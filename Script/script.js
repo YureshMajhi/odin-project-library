@@ -32,22 +32,13 @@ function addBookToLibrary() {
 }
 
 document.querySelector("#submit").addEventListener("click", function () {
-  if (
-    nameInput.value != "" &&
-    authorInput.value != "" &&
-    statusInput.value != ""
-  ) {
-    myLibrary[arrayCount] = addBookToLibrary();
-    arrayCount++;
-    localStorage.setItem("arrayCount", JSON.stringify(arrayCount));
-    nameInput.value = "";
-    authorInput.value = "";
-    statusInput.value = "";
-  }
-  contents.innerHTML = generateList(myLibrary);
-  form.style.display = "none";
+  onSubmit();
+});
 
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+document.addEventListener("keydown", function (e) {
+  if (e.key == "Enter") {
+    onSubmit();
+  }
 });
 
 function generateList(arg) {
@@ -70,3 +61,22 @@ document.querySelector("#delete").addEventListener("click", function () {
   arrayCount = 0;
   localStorage.clear();
 });
+
+function onSubmit() {
+  if (
+    nameInput.value != "" &&
+    authorInput.value != "" &&
+    statusInput.value != ""
+  ) {
+    myLibrary[arrayCount] = addBookToLibrary();
+    arrayCount++;
+    localStorage.setItem("arrayCount", JSON.stringify(arrayCount));
+    nameInput.value = "";
+    authorInput.value = "";
+    statusInput.value = "";
+  }
+  contents.innerHTML = generateList(myLibrary);
+  form.style.display = "none";
+
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
