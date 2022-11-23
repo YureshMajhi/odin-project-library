@@ -16,93 +16,114 @@ h1 {
   letter-spacing: 2px;
 }
 
-#add {
+#add-book {
   padding: 1.2rem;
   font-size: 1.2rem;
   border: none;
   background-color: rgb(221, 122, 221);
   border-radius: 0.5rem;
   color: rgb(54, 6, 54);
+  cursor: pointer;
+  transition: 0.2s;
 }
-#add:hover {
+#add-book:hover {
   background-color: rgb(197, 53, 197);
-}
-
-#delete {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  padding: 0.8rem;
-  background-color: rgb(77, 1, 77);
-  border: none;
   color: white;
-  border-radius: 0.2rem;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-}
-#delete:hover {
-  box-shadow: 2px 2px 5px purple;
 }
 
-.form-container {
+#form {
   position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(145, 30, 145, 0.5);
-  line-height: 80vh;
+  background-color: rgb(221, 122, 221, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.form {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 25vh;
-  padding: 20px;
-  background-color: purple;
-  border-radius: 0.2rem;
-}
-
-.form input {
-  padding: 3px;
-  font-size: 15px;
-}
-
-#submit {
-  background-color: rgb(221, 122, 221);
-  border: none;
-  padding: 0.4rem;
-  border-radius: ;
-  color: rgb(54, 6, 54);
-}
-#submit:hover {
+section {
+  color: white;
   background-color: rgb(197, 53, 197);
+  height: 16rem;
+  width: 14rem;
+  text-align: left;
+  padding: 1.2rem;
+  border-radius: 5px;
 }
-
-button {
+section label:last-of-type input {
+  width: unset;
+  height: 1.1rem;
+  width: 1.1rem;
+}
+label {
+  display: block;
+  margin: 1rem 0;
+}
+input {
+  margin-top: 0.2rem;
+  width: 100%;
+  border-radius: 2px;
+  padding: 0.1rem;
+}
+#submit-el {
+  text-transform: uppercase;
+  background-color: rgb(122, 23, 122);
+  border: none;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .main {
-  padding: 2rem;
-  margin-top: 1.5rem;
+  margin: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, 15rem);
-  gap: 1.5rem;
+  gap: 1.9rem;
   justify-content: center;
 }
-
-.main .card {
-  padding: 1rem;
+.main div {
+  position: relative;
+  background-color: rgba(159, 74, 207, 0.315);
+  padding: 1.2rem;
   text-align: left;
-  background-color: rgb(228, 188, 247);
-  color: #771167;
-  min-height: 8rem;
-  border-radius: 0.5rem;
-  box-shadow: 3px 2px 6px black;
+  min-height: 10rem;
+  max-height: 15rem;
+  border-radius: 5px;
+  box-shadow: 5px 5px 3px rgba(68, 6, 104, 0.315);
 }
-
-.card p {
-  line-height: 2rem;
+.main div p:first-of-type {
+  color: rgb(158, 14, 179);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.main div p:last-of-type {
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-size: 1.1rem;
+  color: #530953;
+}
+.main button {
+  height: 2.3rem;
+  width: 2.3rem;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.829);
+  color: white;
+  font-weight: bold;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.main button:hover {
+  background-color: black;
+  transform: scale(1.2);
 }
