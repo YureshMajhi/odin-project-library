@@ -94,6 +94,7 @@ function generateList() {
     } else {
       checkbox.checked = false;
     }
+    checkbox.classList.add("form-check-input");
 
     // adding book info to document
     element.appendChild(name);
