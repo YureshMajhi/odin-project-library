@@ -52,11 +52,6 @@ section {
   padding: 1.2rem;
   border-radius: 5px;
 }
-section label:last-of-type input {
-  width: unset;
-  height: 1.1rem;
-  width: 1.1rem;
-}
 label {
   display: block;
   margin: 1rem 0;
@@ -109,7 +104,7 @@ input {
   font-size: 1.1rem;
   color: #530953;
 }
-.main button {
+.main button:last-of-type {
   height: 2.3rem;
   width: 2.3rem;
   border-radius: 50%;
@@ -123,7 +118,7 @@ input {
   cursor: pointer;
   transition: 0.1s;
 }
-.main button:hover {
+.main button:last-of-type:hover {
   background-color: black;
   transform: scale(1.2);
 }

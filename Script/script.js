@@ -4,14 +4,21 @@ let myLibrary = [];
 const form = document.querySelector("#form");
 const nameVal = document.querySelector("#name-el");
 const authorVal = document.querySelector("#author-el");
-const statusVal = document.querySelector("#status-el");
 const submitBtn = document.querySelector("#submit-el");
 const displayBook = document.querySelector(".main");
+
+// checking local storage
 const myLibraryStorage = JSON.parse(localStorage.getItem("myLibrary"));
 
+// rendering from local storage
 if (myLibraryStorage) {
   myLibrary = myLibraryStorage;
   generateList();
+}
+
+// setting local storage
+function setLocalStorage() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 // storing value using constructor
@@ -58,7 +65,7 @@ function submit() {
     nameVal.value = "";
     authorVal.value = "";
   }
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  setLocalStorage();
 }
 
 function generateList() {
@@ -67,14 +74,14 @@ function generateList() {
 
   //   generating library
   myLibrary.forEach(function (bookEl) {
-    let element = document.createElement("div");
-    let name = document.createElement("p");
-    let author = document.createElement("p");
+    const element = document.createElement("div");
+    const name = document.createElement("p");
+    const author = document.createElement("p");
     name.textContent = bookEl.name;
     author.textContent = "By:- " + bookEl.author;
 
     // creating delete button
-    let deleteBtn = document.createElement("button");
+    const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "X";
     deleteBtn.id = bookEl.id;
 
@@ -82,6 +89,7 @@ function generateList() {
     element.appendChild(name);
     element.appendChild(author);
     element.appendChild(deleteBtn);
+
     displayBook.appendChild(element);
 
     deleteBtn.addEventListener("click", deleteBook);
@@ -98,4 +106,5 @@ function deleteBook(e) {
     }
   });
   generateList();
+  setLocalStorage();
 }
