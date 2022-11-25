@@ -65,7 +65,6 @@ function submit() {
     nameVal.value = "";
     authorVal.value = "";
   }
-  setLocalStorage();
 }
 
 function generateList() {
@@ -77,6 +76,8 @@ function generateList() {
     const element = document.createElement("div");
     const name = document.createElement("p");
     const author = document.createElement("p");
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
     name.textContent = bookEl.name;
     author.textContent = "By:- " + bookEl.author;
 
@@ -85,14 +86,43 @@ function generateList() {
     deleteBtn.textContent = "X";
     deleteBtn.id = bookEl.id;
 
+    // checkbox
+    checkbox.dataset.todoId = bookEl.id;
+    checkbox.onchange = changeTodo;
+    if (bookEl.isDone == true) {
+      checkbox.checked = true;
+    } else {
+      checkbox.checked = false;
+    }
+
     // adding book info to document
     element.appendChild(name);
     element.appendChild(author);
+    element.appendChild(checkbox);
     element.appendChild(deleteBtn);
 
     displayBook.appendChild(element);
 
     deleteBtn.addEventListener("click", deleteBook);
+  });
+  setLocalStorage();
+}
+
+function changeTodo(e) {
+  const checkbox = e.target;
+
+  const todoId = checkbox.dataset.todoId;
+  const checked = checkbox.checked;
+
+  toggleCheckbox(todoId, checked);
+  generateList();
+}
+
+function toggleCheckbox(todoId, checked) {
+  myLibrary.forEach(function (bookEl) {
+    if (bookEl.id == todoId) {
+      bookEl.isDone = checked;
+    }
   });
 }
 
